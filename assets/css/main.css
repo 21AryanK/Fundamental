@@ -198,7 +198,7 @@ section {
 
 .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
-  color: var(--color-inverse);
+  color: var(--color-inverse) !important;
   background: rgba(var(--color-primary-rgb), 0.85);
 }
 
