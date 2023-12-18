@@ -1,0 +1,104 @@
+header{
+    background-color: #FD8D14 !important;
+}
+
+header .logo{
+    text-decoration: none;
+}
+
+header .logo h1{
+    color: white !important;
+}
+
+header .btn-getstarted{
+    background-color: white !important;
+    color: #FD8D14 !important;
+    text-decoration: none;
+}
+
+#navmenu ul li a{
+    color: #eee !important;
+    text-decoration: none;
+}
+
+#gap{
+    height: 100px;
+}
+
+
+.notice{
+    margin: 10px 0 20px 0px;
+    text-align: center;
+}
+
+
+#main{
+    height: calc(100vh - 100px);
+}
+
+.notice-block{
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px auto;
+    border: 0.5px solid #FD8D14;
+    padding: 0 10px;
+    border-radius: 9px;
+    box-shadow: 5px 1px 4px #FD8D14, 
+                5px -1px 4px #FD8D14;
+    /* border-bottom: 1.5px solid #FD8D14; */
+    max-width: 950px;
+}
+
+#footer{
+    /* display: none;    */
+
+}
+
+@media screen and (max-width:950px) {
+    .notice-block{
+        margin: 15px 10px;
+    }
+}
+
+.notice-date{
+    flex: 1;
+    text-align: center;
+}
+
+.notice-container{
+    padding: 3px 3px 3px 10px;
+    border-left: 1.5px solid #FD8D14;
+    flex: 4;
+}
+
+.notice-date{
+}
+
+.download-notice-btn{
+    width: fit-content;
+    text-align: center;
+    background-color: none;
+    padding: 6px 2px;
+    flex:1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    border-radius: 9px;
+    /* width: 100px; */
+}
+
+.download-notice-btn.visible{
+    background-color: #FD8D14;
+}
+
+.notice-block .download-notice-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+.fa-download{
+    font-size: 24px;
+}
