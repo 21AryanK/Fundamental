@@ -1,6 +1,7 @@
 import { eventsData } from "../firebase/firebase-main.js";
 
-console.log(eventsData);
+
+
 
 const eventContainer = document.querySelector(".event-container");
 
@@ -65,7 +66,6 @@ eventsData.forEach((event) => {
     
     title.innerText = event.title;
     description.innerText = event.content;
-    // eventDescription.appendChild(description);
     detail.append(summary,description)
     
     event.pdfurl.forEach((url) => {
@@ -84,3 +84,17 @@ eventsData.forEach((event) => {
 })
 
 if(eventsData.length != 0) eventContainer.innerHTML = container.innerHTML;
+
+
+/**
+* Preloader
+*/
+setTimeout(() => {
+
+    if(eventsData != null) {
+        const preloader = document.querySelector('#preloader');
+        if (preloader) {
+          preloader.remove();
+        }
+    }
+},500);
