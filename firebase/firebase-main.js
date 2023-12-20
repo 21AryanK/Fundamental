@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore,collection,getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getStorage, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
 
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -23,15 +23,24 @@ import { getStorage, ref } from "https://www.gstatic.com/firebasejs/10.7.1/fireb
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  let noticesData = []
+  let noticesData = [];
+  let eventsData = [];
 
-  const querySnapshot = await getDocs(collection(db,'notices'));
-  querySnapshot.forEach((doc) => {
+  const noticequerySnapshot = await getDocs(collection(db,'notices'));
+  noticequerySnapshot.forEach((doc) => {
     let d = {id: doc.id, ...doc.data()};
     noticesData.push(d);
   });
 
+  const eventquerySnapshot = await getDocs(collection(db,'events'));
+  eventquerySnapshot.forEach((doc) => {
+    let d = {id: doc.id, ...doc.data()};
+    eventsData.push(d);
+  });
   noticesData.sort((a,b) => b.uploadtime - a.uploadtime);
+  eventsData.sort((a,b) => b.uploadtime - a.uploadtime);
   console.log(noticesData);
 
-export {noticesData};
+
+
+export {noticesData, eventsData, db};

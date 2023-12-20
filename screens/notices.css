@@ -25,15 +25,50 @@ header .btn-getstarted{
     height: 100px;
 }
 
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .notice{
+    width: fit-content;
     margin: 10px 0 20px 0px;
+    font-size: 36px;
     text-align: center;
+    font-weight: bold;
+    position: relative; 
+}
+
+.notice::after{
+    content: "";
+    width: 100px;
+    height: 5px;
+    background-color: #FD8D14;
+    position: absolute;
+    top: 50%;
+    right: -105px;
+    /* margin-left: 10px; */
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.notice::before{
+    content: "";
+    width: 100px;
+    height: 5px;
+    background-color: #FD8D14;
+    position: absolute;
+    top: 50%;
+    left: -105px;
+    /* margin-right: 30px; */
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
 
 #main{
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
 }
 
 .notice-block{
@@ -101,4 +136,75 @@ header .btn-getstarted{
 
 .fa-download{
     font-size: 24px;
+}
+
+.animation{
+    height: 300px;
+}
+
+.animation lottie-player{
+    height: 100px;
+    width: 100px;
+}
+
+#firstLottie{
+    display: block;
+    width:400px; 
+    height: 400px;
+}
+
+.event-container{
+    max-width: 950px;
+    margin: 15px auto 30px auto;
+}
+
+.event-img-container{
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 10px;
+    row-gap: 10px;
+    /* overflow: hidden; */
+    flex-wrap: wrap;
+}
+
+
+
+.description{
+    color: #000;
+    font-weight: 700;
+    
+}
+
+.event{
+    margin-bottom: 30px;
+}
+img{
+    transition: transform 200ms;
+}
+img:hover {
+    transform: scale(1.2);
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    border: 5px solid white;
+}
+
+summary{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 950px) {
+    .event-container{
+        margin: 10px;
+        flex-basis: 150px;
+    }
+    .event-description{
+        display: none;
+        
+    }
+    .description{
+        color: black;
+    }
 }
