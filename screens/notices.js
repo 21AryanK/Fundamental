@@ -6,6 +6,43 @@ const mainContainer = document.querySelector("#main-container");
 const main = document.createElement("div");
 console.log(main);
 
+/**
+ * Mobile nav toggle
+ */
+const mobileNavToggleBtn = document.querySelector(".mobile-nav-toggle");
+
+function mobileNavToogle() {
+  document.querySelector("body").classList.toggle("mobile-nav-active");
+  mobileNavToggleBtn.classList.toggle("bi-list");
+  mobileNavToggleBtn.classList.toggle("bi-x");
+}
+mobileNavToggleBtn.addEventListener("click", mobileNavToogle);
+
+/**
+ * Hide mobile nav on same-page/hash links
+ */
+document.querySelectorAll("#navmenu a").forEach((navmenu) => {
+  navmenu.addEventListener("click", () => {
+    if (document.querySelector(".mobile-nav-active")) {
+      mobileNavToogle();
+    }
+  });
+});
+
+/**
+ * Toggle mobile nav dropdowns
+ */
+document.querySelectorAll(".navmenu .has-dropdown i").forEach((navmenu) => {
+  navmenu.addEventListener("click", function (e) {
+    if (document.querySelector(".mobile-nav-active")) {
+      e.preventDefault();
+      this.parentNode.classList.toggle("active");
+      this.parentNode.nextElementSibling.classList.toggle("dropdown-active");
+      e.stopImmediatePropagation();
+    }
+  });
+});
+
 noticesData.forEach((notice) => {
   const noticeDiv = document.createElement("div");
   const dateDiv = document.createElement("div");
@@ -44,6 +81,14 @@ noticesData.forEach((notice) => {
 
 if (noticesData != 0) mainContainer.innerHTML = main.innerHTML;
 
-// document.addEventListener(onload,() => {
-
-// })
+/**
+ * Preloader
+ */
+setTimeout(() => {
+  if (noticesData != null) {
+    const preloader = document.querySelector("#preloader");
+    if (preloader) {
+      preloader.remove();
+    }
+  }
+}, 500);
